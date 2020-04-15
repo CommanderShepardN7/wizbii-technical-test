@@ -1,0 +1,10 @@
+{
+  "/proxy": {
+    "target": "https://api.wizbii.com/v1/account/validate",
+    "secure": false,
+    "pathRewrite": {
+      "^/proxy": ""
+    },
+    "changeOrigin": true
+  }
+}
