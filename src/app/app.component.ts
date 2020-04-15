@@ -8,11 +8,16 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 })
 
 export class AppComponent implements OnInit{
-  private token: any;
+  private token: string;
+  private data: JSON;
 
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
+      this.getToken();
+  }
+
+  private getToken(){
 
     let body = new URLSearchParams();
     body.set('username', 'decouverte+2@wizbii.com');
@@ -20,18 +25,30 @@ export class AppComponent implements OnInit{
     body.set('client_id', 'test');
     body.set('grant_type', 'password');
 
-    let options = {
+    let optionsGetToken = {
       headers: new HttpHeaders({
         'Content-Type': 'application/x-www-form-urlencoded'})
     };
 
-    this.http.post("/proxy",body.toString(),options).subscribe(
+    this.http.post("/proxyGetToken",body.toString(),optionsGetToken).subscribe(
       response => {
-        console.log("Token is: " + response['access-token']);
         this.token = response['access-token'];
+        this.getDashBoardData()
       });
-
   }
 
+  private getDashBoardData(){
+
+    let optionsDashBoard = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer '+ this.token
+      })
+    };
+
+    this.http.post("/proxyGetDashBoardData",{},optionsDashBoard).subscribe(
+      response => {
+        this.data = response as JSON;
+      });
+  }
 
 }
