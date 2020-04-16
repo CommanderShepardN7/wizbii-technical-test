@@ -55,4 +55,23 @@ export class AppComponent implements OnInit{
       return object.hasOwnProperty(property);
   }
 
+  private getTimeOfPost(time: string) {
+    var date = new Date(time),
+      diff = (((new Date()).getTime() - date.getTime()) / 1000),
+      daydiff = Math.floor(diff / 86400);
+
+    if (isNaN(daydiff) || daydiff < 0 || daydiff >= 31)
+      return '';
+
+    return daydiff == 0 && (
+      diff < 60 && " - à l'instant" ||
+      diff < 120 &&  " - il y a 1 minute"  ||
+      diff < 3600 && " - il y a " + Math.floor(diff / 60) + " minutes" ||
+      diff < 7200 && " - il y a 1 heure" ||
+      diff < 86400 && " - il y a " + Math.floor(diff / 3600) + " heures") ||
+      daydiff == 1 && " - hier" ||
+      daydiff < 7 && " - il y a " + daydiff + " jours" ||
+      daydiff < 31 && " - il y a " + Math.ceil(daydiff / 7) + " semaine(s)";
+  }
+
 }

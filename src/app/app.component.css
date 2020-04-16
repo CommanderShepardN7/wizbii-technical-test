@@ -1,14 +1,18 @@
+.feed{
+  background-color: #F5F5F5;
+}
 
-
-.example-header-image {
+.header-image {
   background-size: cover;
 }
 
 .mat-card {
   margin: auto;
+  max-width: 600px;
 }
 
-.example-card{
-  margin-top: 1%;
-  max-width: 500px;
+.item{
+  margin-bottom : 1%;
 }
+
+

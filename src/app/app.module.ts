@@ -9,6 +9,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -20,7 +21,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatCardModule,
     MatListModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
