@@ -9,7 +9,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 export class AppComponent implements OnInit{
   private token: string;
-  private data: JSON;
+  private dashBoardData: JSON;
 
   constructor(private http: HttpClient) {}
 
@@ -47,8 +47,12 @@ export class AppComponent implements OnInit{
 
     this.http.post("/proxyGetData" + '/v2/dashboard/?direction=newest',{},optionsDashBoard).subscribe(
       response => {
-        this.data = response as JSON;
+        this.dashBoardData = response['feed_items']['feed_items'] as JSON;
       });
+  }
+
+  private checkKey(object : any, property: string){
+      return object.hasOwnProperty(property);
   }
 
 }
