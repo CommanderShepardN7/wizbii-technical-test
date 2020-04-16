@@ -7,6 +7,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+
 
 
 
@@ -22,6 +24,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatListModule,
     MatButtonModule,
     MatIconModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

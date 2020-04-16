@@ -5,7 +5,7 @@
 
         <mat-card class="item">
 
-            <mat-card-header>
+          <mat-card-header>
               <div mat-card-avatar [ngStyle]="{'background-image': 'url(https://material.angular.io/assets/img/examples/shiba1.jpg)'}" class="header-image"></div>
 
               <mat-card-title *ngIf="checkKey(item['publication'],'poster')">
@@ -19,18 +19,26 @@
                 {{item['publication']['shared_job']['title']}}
               </mat-card-subtitle>
 
-             </mat-card-header>
+            </mat-card-header>
 
-             <mat-card-content *ngIf="checkKey(item['publication'],'shared_job')">
-               <div [innerHTML]="item['publication']['shared_job']['mission']"></div>
-             </mat-card-content>
+            <div id="tags">
+              <ng-container *ngFor="let tag of item['publication']['tags']" >
+                #{{tag['name']}}
+              </ng-container>
+            </div>
 
+            <mat-card-content *ngIf="checkKey(item['publication'],'shared_job')">
+                 <div [innerHTML]="item['publication']['shared_job']['mission']"></div>
+               </mat-card-content>
 
-          <mat-card-actions class="action-buttons">
-            <button mat-button color="primary"><mat-icon>thumb_up_alt</mat-icon> 12 Likes</button>
-            <button mat-button color="primary"><mat-icon>comment</mat-icon> Comments</button>
-            <button mat-button color="primary"><mat-icon>share</mat-icon> Share</button>
-          </mat-card-actions>
+            <mat-card-footer>
+              <hr>
+              <mat-form-field class="inputComment">
+                <mat-label>Laisser un commentaire</mat-label>
+                <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+              </mat-form-field>
+
+            </mat-card-footer>
 
          </mat-card>
 
