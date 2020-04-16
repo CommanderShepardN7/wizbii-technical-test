@@ -30,7 +30,7 @@ export class AppComponent implements OnInit{
         'Content-Type': 'application/x-www-form-urlencoded'})
     };
 
-    this.http.post("/proxyGetToken",body.toString(),optionsGetToken).subscribe(
+    this.http.post("/proxyGetData" + '/v1/account/validate',body.toString(),optionsGetToken).subscribe(
       response => {
         this.token = response['access-token'];
         this.getDashBoardData()
@@ -45,7 +45,7 @@ export class AppComponent implements OnInit{
       })
     };
 
-    this.http.post("/proxyGetDashBoardData",{},optionsDashBoard).subscribe(
+    this.http.post("/proxyGetData" + '/v2/dashboard/?direction=newest',{},optionsDashBoard).subscribe(
       response => {
         this.data = response as JSON;
       });

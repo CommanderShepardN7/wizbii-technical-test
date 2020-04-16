@@ -1,20 +1,10 @@
 {
-  "/proxyGetToken": {
-    "target": "https://api.wizbii.com/v1/account/validate",
+  "/proxyGetData": {
+    "target": "https://api.wizbii.com",
     "secure": false,
     "pathRewrite": {
-      "^/proxyGetToken": ""
-    },
-    "changeOrigin": true
-  },
-
-  "/proxyGetDashBoardData": {
-    "target": "https://api.wizbii.com/v2/dashboard/?direction=newest",
-    "secure": false,
-    "pathRewrite": {
-      "^/proxyGetDashBoardData": ""
+      "^/proxyGetData": ""
     },
     "changeOrigin": true
   }
-
 }
