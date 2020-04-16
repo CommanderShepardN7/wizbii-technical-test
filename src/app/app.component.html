@@ -1,5 +1,14 @@
 <div class="feed">
 
+  <mat-card class="item">
+
+    <mat-card-actions class="header-buttons">
+      <button mat-button ><mat-icon>outlined_flag</mat-icon> Besoin d'aide !</button>
+      <button mat-button ><mat-icon>chat_bubble_outline</mat-icon> Partager un truc intéressant </button>
+    </mat-card-actions>
+
+  </mat-card>
+
   <div  *ngFor="let item of dashBoardData">
     <div *ngIf="checkKey(item,'publication')">
 
@@ -32,6 +41,11 @@
             <h5>{{item['publication']['shared_job']['title']}}</h5>
             <div [innerHTML]="item['publication']['shared_job']['mission']"></div>
           </mat-card-content>
+
+          <mat-card-actions class="action-buttons">
+            <button mat-button color="primary"><mat-icon>add_circle_outline</mat-icon> Envoyer un Thanx !</button>
+            <button mat-button color="primary"><mat-icon>share</mat-icon> Partager à un  ami !</button>
+          </mat-card-actions>
 
           <mat-card-footer>
             <hr>

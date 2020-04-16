@@ -8,7 +8,7 @@
 
 .mat-card {
   margin: auto;
-  max-width: 600px;
+  max-width: 40%;
 }
 
 .item{
@@ -20,7 +20,16 @@
   margin-bottom: 4%;
 }
 
-.inputComment, mat-card-footer {
+.header-buttons{
+  padding-top: 25px;
+}
+
+.action-buttons, .header-buttons{
+  text-align: center;
+}
+
+.inputComment, .mat-card-footer {
   width: 100%;
+  margin: auto;
   padding: 2%;
 }
