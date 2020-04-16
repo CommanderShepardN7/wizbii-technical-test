@@ -6,39 +6,40 @@
         <mat-card class="item">
 
           <mat-card-header>
-              <div mat-card-avatar [ngStyle]="{'background-image': 'url(https://material.angular.io/assets/img/examples/shiba1.jpg)'}" class="header-image"></div>
 
-              <mat-card-title *ngIf="checkKey(item['publication'],'poster')">
-                {{item['publication']['poster']['displayName']}}
-                <mat-card-subtitle>
-                  {{getTimeOfPost(item['date'])}}
-                </mat-card-subtitle>
-              </mat-card-title>
+            <div mat-card-avatar [ngStyle]="{'background-image': 'url(https://material.angular.io/assets/img/examples/shiba1.jpg)'}" class="header-image"></div>
+            <mat-card-title *ngIf="checkKey(item['publication'],'poster')">
+              {{item['publication']['poster']['displayName']}}
+            </mat-card-title>
 
-              <mat-card-subtitle *ngIf="checkKey(item['publication'],'shared_job')">
-                {{item['publication']['shared_job']['title']}}
-              </mat-card-subtitle>
+            <mat-card-subtitle>
+              {{getTimeOfPost(item['date'])}}
+            </mat-card-subtitle>
 
-            </mat-card-header>
+            <mat-card-subtitle *ngIf="checkKey(item['publication'],'company')">
+              <div [innerHTML]="item['publication']['company']['home_tab']['description']"></div>
+            </mat-card-subtitle>
 
-            <div id="tags">
+          </mat-card-header>
+
+          <div id="tags">
               <ng-container *ngFor="let tag of item['publication']['tags']" >
                 #{{tag['name']}}
               </ng-container>
-            </div>
+          </div>
 
-            <mat-card-content *ngIf="checkKey(item['publication'],'shared_job')">
-                 <div [innerHTML]="item['publication']['shared_job']['mission']"></div>
-               </mat-card-content>
+          <mat-card-content *ngIf="checkKey(item['publication'],'shared_job')">
+            <h5>{{item['publication']['shared_job']['title']}}</h5>
+            <div [innerHTML]="item['publication']['shared_job']['mission']"></div>
+          </mat-card-content>
 
-            <mat-card-footer>
-              <hr>
-              <mat-form-field class="inputComment">
-                <mat-label>Laisser un commentaire</mat-label>
-                <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
-              </mat-form-field>
-
-            </mat-card-footer>
+          <mat-card-footer>
+            <hr>
+            <mat-form-field class="inputComment">
+              <mat-label>Laisser un commentaire</mat-label>
+              <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+            </mat-form-field>
+          </mat-card-footer>
 
          </mat-card>
 
