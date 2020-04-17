@@ -16,7 +16,11 @@
 
           <mat-card-header>
 
-            <div mat-card-avatar [ngStyle]="{'background-image': 'url(https://material.angular.io/assets/img/examples/shiba1.jpg)'}" class="header-image"></div>
+            <!-- Normalement, cette ligne la doit faire afficher la bonne image.-->
+            <!--<div mat-card-avatar [ngStyle]="{'background-image': 'url(' + item['publication']['company']['logo'] + ')'}" class="header-item-image"></div>-->
+
+            <div mat-card-avatar [ngStyle]="{'background-image': 'url(https://material.angular.io/assets/img/examples/shiba1.jpg)'}" class="header-item-image"></div>
+
             <mat-card-title *ngIf="checkKey(item['publication'],'poster')">
               {{item['publication']['poster']['displayName']}}
             </mat-card-title>
@@ -51,11 +55,11 @@
             <hr>
             <mat-form-field class="inputComment">
               <mat-label>Laisser un commentaire</mat-label>
-              <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+              <textarea matInput placeholder="Ex. Un commentaire..."></textarea>
             </mat-form-field>
           </mat-card-footer>
 
-         </mat-card>
+        </mat-card>
 
     </div>
   </div>

@@ -51,10 +51,13 @@ export class AppComponent implements OnInit{
       });
   }
 
+  /*Method 'checkKey()' checks if a key 'property' exists inside a json object.
+  For eliminating errors in console browser*/
   private checkKey(object : any, property: string){
       return object.hasOwnProperty(property);
   }
 
+  /*Method 'getTimeOfPost()' return how much time passed after item posting.*/
   private getTimeOfPost(time: string) {
     var date = new Date(time),
       diff = (((new Date()).getTime() - date.getTime()) / 1000),
